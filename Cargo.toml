@@ -1,0 +1,11 @@
+[package]
+name = "redis-rust-tutorial"
+version = "0.1.0"
+authors = ["abhishek <abhirockzz@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+redis = { version = "0.19.0", features = ["tls"] }
+rand = "0.8.1"
