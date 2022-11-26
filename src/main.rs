@@ -117,11 +117,11 @@ fn list() {
         .arg("item-1")
         .query(&mut conn)
         .expect("failed to execute LPUSH for 'items'");
-
-    let item: String = conn
-        .lpop(list_name)
+    
+    let items: Vec<String> = conn
+        .lpop(list_name, std::num::NonZeroUsize::new(1))
         .expect("failed to execute LPOP for 'items'");
-    println!("first item: {}", item);
+    println!("first item: {}", items[0]);
 
     let _: () = conn.rpush(list_name, "item-2").expect("RPUSH failed");
     let _: () = conn.rpush(list_name, "item-3").expect("RPUSH failed");
